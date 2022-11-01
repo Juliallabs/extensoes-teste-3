@@ -31,9 +31,9 @@ namespace EletroBlocks {
 
             let mediamovel1 = 0
             let mediamovel2 = 0
-            for (let j = 0; j < 20; j++) {
+            for (let j = 0; j < 19; j++) {
 
-                for (let i = 0 ;i <10; i++) {
+                for (let i = 0 ;i <9; i++) {
             
                     mediamovel1 = mediamovel1 + pins.analogReadPin(porta)
 
