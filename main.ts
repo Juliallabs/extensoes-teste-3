@@ -31,12 +31,12 @@ namespace EletroBlocks {
 
             let mediamovel = 0
 
-            for (let i = 0 ;i <11; i++) {
+            for (let i = 0 ;i <50; i++) {
             
                 mediamovel = mediamovel + pins.analogReadPin(porta)
 
             }
-            x = mediamovel / 10
+            x = mediamovel / 51
 
         }
         return Math.round(x)
