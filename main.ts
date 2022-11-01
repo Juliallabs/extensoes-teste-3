@@ -17,7 +17,7 @@ namespace EletroBlocks {
     //% block
     export function leituraAnalogica(porta: AnalogPin, sensor: TIPOS):number{
         let x = pins.analogReadPin(porta)
-        if (pins.analogReadPin(porta) > 1000) {
+        if (pins.analogReadPin(porta) > 990) {
 
             x=1023
 
