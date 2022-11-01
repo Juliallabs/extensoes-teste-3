@@ -36,7 +36,7 @@ namespace EletroBlocks {
                 mediamovel = mediamovel + pins.analogReadPin(porta)
 
             }
-                x = mediamovel /10
+                x = mediamovel % 10
         }
         return x
     }
