@@ -15,7 +15,9 @@ enum TIPOS {
 //% color="#AA278D" weight=100
 namespace EletroBlocks {
     //% block
-    export function leituraAnalogica(porta: AnalogPin, sensor: TIPOS) {
+    export function leituraAnalogica(porta: AnalogPin, sensor: TIPOS):number{
+
+        return pins.analogReadPin(porta)
 
     }
 
