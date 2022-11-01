@@ -16,19 +16,19 @@ enum TIPOS {
 namespace EletroBlocks {
     //% block
     export function leituraAnalogica(porta: AnalogPin, sensor: TIPOS):number{
-
+        let x = pins.analogReadPin(porta)
         if (pins.analogReadPin(porta) > 1000) {
 
-            porta=1023
+            x=1023
 
         }
         if (pins.analogReadPin(porta) < 50) {
 
-            porta = 0
+            x = 0
 
         }
         
-        return porta
+        return x
 
     }
 
