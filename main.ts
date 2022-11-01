@@ -31,7 +31,7 @@ namespace EletroBlocks {
 
             let mediamovel1 = 0
             let mediamovel2 = 0
-            for (let j = 0; j < 6; j++) {
+            for (let j = 0; j < 21; j++) {
 
                 for (let i = 0 ;i <11; i++) {
             
@@ -43,7 +43,7 @@ namespace EletroBlocks {
                 mediamovel2 = mediamovel2+mediamovel1
 
             }
-            x = mediamovel2 / 5
+            x = mediamovel2 / 20
 
 
         }
