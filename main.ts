@@ -4,14 +4,6 @@
  * is "block", and it specifies that a block should be
  * generated for an **exported** function.
  */
-enum Types {
-  //% block="potentiometer"
-  MicroSeconds,
-  //% block="ldr"
-  CentiMeters,
-  //% block="infra red"
-  Inches,
-}
 //% color="#AA278D" weight=100
 namespace EletroBlocks {
   //% block
