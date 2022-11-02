@@ -36,12 +36,12 @@ namespace EletroBlocks {
         x = mediamovel2 / 20
 
 
-        if (x > 980) {
+        if (x > 930) {
 
             x = 1023
         }
 
-        if (x < 10) {
+        if (x < 50) {
 
             x = 0
 
