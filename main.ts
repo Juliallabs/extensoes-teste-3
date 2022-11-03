@@ -15,11 +15,11 @@ enum TIPOS {
 }
 
 enum PORTASIN {
-    //% block="ENTRADA 1"
+    //% block="ENTRADA1"
     E1,
-    //% block="ENTRADA 2"
+    //% block="ENTRADA2"
     E2,
-    //% block="ENTRADA 3"
+    //% block="ENTRADA3"
     E3
 }
 //% color="#AA278D" weight=100
