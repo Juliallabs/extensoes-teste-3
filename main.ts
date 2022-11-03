@@ -31,19 +31,19 @@ namespace EletroBlocks {
         let mediamovel1 = 0
         let mediamovel2 = 0
 
-        for (let j = 0; j < 19; j++) {
+        for (let j = 0; j < 49; j++) {
 
-            for (let i = 0 ;i <9; i++) {
+            for (let i = 0 ;i <49; i++) {
             
                 mediamovel1 = mediamovel1 + pins.analogReadPin(porta)
 
             }
 
-            mediamovel1 = mediamovel1 /10
+            mediamovel1 = mediamovel1 /50
             mediamovel2 = mediamovel2+mediamovel1
 
             }
-        x = mediamovel2 / 20
+        x = mediamovel2 / 50
 
 
         if (x > 930) {
@@ -60,7 +60,7 @@ namespace EletroBlocks {
         return Math.round(x)
     }
 
-    export function leituraDigital(porta: PORTASIN, sensor: TIPOS): number {
+    export function leituraDigital(porta: AnalogPin, sensor: TIPOS): number {
         let x = 0
         let mediamovel1 = 0
         let mediamovel2 = 0
