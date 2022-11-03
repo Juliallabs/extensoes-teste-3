@@ -16,11 +16,11 @@ enum TIPOS {
 
 enum PORTASIN {
     //% block="ENTRADA 1"
-    Resistencia,
+    E1,
     //% block="ENTRADA 2"
-    Luminosidade,
+    E2,
     //% block="ENTRADA 3"
-    Reflexao
+    E3
 }
 //% color="#AA278D" weight=100
 //% groups=['ENTRTADAS', 'SAIDAS', 'FUNCOES']
@@ -60,48 +60,18 @@ namespace EletroBlocks {
         return Math.round(x)
     }
     //% block
-    export function leituraDigital(porta: AnalogPin, sensor: TIPOS): number {
-        let x = 0
-        let mediamovel1 = 0
-        let mediamovel2 = 0
-        let resultado = 0
-
-
-        for (let j = 0; j < 19; j++) {
-
-            for (let i = 0; i < 9; i++) {
-
-                mediamovel1 = mediamovel1 + pins.analogReadPin(porta)
-
-            }
-
-            mediamovel1 = mediamovel1 / 10
-            mediamovel2 = mediamovel2 + mediamovel1
-
+    export function leituraDigital(porta_entrada: PORTASIN, sensor: TIPOS): number {
+        let porta = AnalogPin.P0
+        switch (porta_entrada) {
+            case PORTASIN.E1  : porta=AnalogPin.P0;
+            case PORTASIN.E2: porta=AnalogPin.P1;
+            default: porta = AnalogPin.P2;
         }
-        x = mediamovel2 / 20
+        let x = leituraAnalogica(porta, sensor)
 
-
-        if (x > 930) {
-
-            x = 1023
-        }
-
-        if (x < 50) {
-
-            x = 0
-
-        }
-
-        if (Math.round(x) > 1024 / 2) {
-
+        if (x > 1024 / 2) {
             return 1
-
-        } else {
-
-            return 0
-
-        } 
+        }else return 0
 
     }
 
