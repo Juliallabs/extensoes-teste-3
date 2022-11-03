@@ -6,14 +6,16 @@
 * generated for an **exported** function.
 */
 enum TIPOS {
-    //% block="potenciometro"
-    MicroSeconds,
-    //% block="ldr"
-    Centimeters,
-    //% block="infra vermelho"
-    Inches
+    //% block="POTENCIOMETRO"
+    Resistencia,
+    //% block="SENSOR DE LUZ"
+    Luminosidade,
+    //% block="INFRA VERMELHO"
+    Reflexao
 }
 //% color="#AA278D" weight=100
+
+//% groups=['ENTRTADAS', 'SAIDAS', 'FUNCOES']
 namespace EletroBlocks {
     //% block
     export function leituraAnalogica(porta: AnalogPin, sensor: TIPOS): number {
