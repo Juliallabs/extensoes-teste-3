@@ -59,7 +59,7 @@ namespace EletroBlocks {
         
         return Math.round(x)
     }
-
+    //% block
     export function leituraDigital(porta: AnalogPin, sensor: TIPOS): number {
         let x = 0
         let mediamovel1 = 0
