@@ -22,6 +22,15 @@ enum PORTASIN {
     //% block="ENTRADA3"
     E3
 }
+
+enum PORTASSA {
+    //% block="SAIDA_A"
+    SA,
+    //% block="SAIDA_B"
+    SB,
+    //% block="SAIDA_C"
+    SC
+}
 //% color="#AA278D" weight=100
 //% groups=['ENTRTADAS', 'SAIDAS', 'FUNCOES']
 namespace EletroBlocks {
@@ -61,7 +70,7 @@ namespace EletroBlocks {
     }
     //% block
     export function leituraDigital(porta_entrada: PORTASIN, sensor: TIPOS): number {
-        let porta = port_selec(porta_entrada)
+        let porta = port_selec_en(porta_entrada)
         let x = leituraAnalogica(porta, sensor)
 
         if (x > 1024 / 2) {
@@ -69,8 +78,18 @@ namespace EletroBlocks {
         }else return 0
 
     }
+    //% block
+    export function saida(porta_saida: PORTASSA): AnalogPin {
+        switch (porta_saida) {
+            case PORTASSA.SA: return AnalogPin.P13;
+            case PORTASSA.SB: return AnalogPin.P4;
+            case PORTASSA.SC: return AnalogPin.P5;
+        }
 
-    export function port_selec(porta_entrada: PORTASIN): AnalogPin {
+    }
+
+    // funcoes 
+    export function port_selec_en(porta_entrada: PORTASIN): AnalogPin {
         switch (porta_entrada) {
             case PORTASIN.E1: return AnalogPin.P0;
             case PORTASIN.E2: return AnalogPin.P1;
