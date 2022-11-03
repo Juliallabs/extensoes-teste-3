@@ -61,12 +61,7 @@ namespace EletroBlocks {
     }
     //% block
     export function leituraDigital(porta_entrada: PORTASIN, sensor: TIPOS): number {
-        let porta
-        switch (porta_entrada) {
-            case PORTASIN.E1: porta=AnalogPin.P0;
-            case PORTASIN.E2: porta=AnalogPin.P1;
-            case PORTASIN.E3: porta = AnalogPin.P2;
-        }
+        let porta = port_selec(porta_entrada)
         let x = leituraAnalogica(porta, sensor)
 
         if (x > 1024 / 2) {
@@ -75,4 +70,11 @@ namespace EletroBlocks {
 
     }
 
+    export function port_selec(porta_entrada: PORTASIN): AnalogPin {
+        switch (porta_entrada) {
+            case PORTASIN.E1: return AnalogPin.P0;
+            case PORTASIN.E2: return AnalogPin.P1;
+            case PORTASIN.E3: return AnalogPin.P2;
+        }
+    }
 }
