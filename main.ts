@@ -54,7 +54,7 @@ namespace EletroBlocks {
             }
         x = mediamovel2 / 20
 
-
+/**
         if (x > 930) {
 
             x = 1023
@@ -65,7 +65,7 @@ namespace EletroBlocks {
             x = 0
 
         }
-        
+  */
         return Math.round(x)
     }
     //% block
