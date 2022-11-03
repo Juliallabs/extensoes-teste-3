@@ -51,7 +51,7 @@ namespace EletroBlocks {
             x = 1023
         }
 
-        if (x < 50) {
+        if (x < 60) {
 
             x = 0
 
