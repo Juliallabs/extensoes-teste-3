@@ -61,11 +61,11 @@ namespace EletroBlocks {
     }
     //% block
     export function leituraDigital(porta_entrada: PORTASIN, sensor: TIPOS): number {
-        let porta = AnalogPin.P0
+        let porta
         switch (porta_entrada) {
-            case PORTASIN.E1  : porta=AnalogPin.P0;
+            case PORTASIN.E1: porta=AnalogPin.P0;
             case PORTASIN.E2: porta=AnalogPin.P1;
-            default: porta = AnalogPin.P2;
+            case PORTASIN.E3: porta = AnalogPin.P2;
         }
         let x = leituraAnalogica(porta, sensor)
 
