@@ -35,31 +35,31 @@ namespace EletroBlocks {
     //% block
     export function leituraAnalogica(porta: AnalogPin, sensor: TIPOS): number {
         let x = 0
-        let mediamovel1 = 0
-        let mediamovel2 = 0
-        for (let j = 0; j < 19; j++) {
-            for (let i = 0; i < 19; i++) {
+        let media1 = 0
+        let media2 = 0
+        for (let j = 0; j < 30; j++) {
+            for (let i = 0; i < 30; i++) {
 
-                mediamovel1 = mediamovel1 + pins.analogReadPin(porta)
+                media1 = media1 + pins.analogReadPin(porta)
             }
-            mediamovel1 = mediamovel1 / 20
-            mediamovel2 = mediamovel2 + mediamovel1
+            media1 = media1 / 30
+            media2 = media2 + media1  
         }
-        x = mediamovel2 / 20
-        if (x > 930) {
+        x = media2 / 30
+        /**if (x > 930) {
             x = 1023
         }
         if (x < 50) {
             x = 0
         }
-
+        */
         return Math.round(x)
     }
     //% block
     export function leituraTESTE(porta: DigitalPin, sensor: TIPOS):  number{ 
         let duty
             pins.onPulsed(porta, PulseValue.High, () => {
-                duty = pins.pulseDuration() / 1000 * 1023
+                duty = pins.pulseDuration() / 1000
             })
         return duty
        
