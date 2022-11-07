@@ -32,28 +32,32 @@ enum PORTASSA {
 //% color="#AA278D" weight=100
 //% groups=['ENTRTADAS', 'SAIDAS', 'FUNCOES']
 namespace EletroBlocks {
+    export function insere_valor(vetamostras:number[],novo: number, tamanho: number) {
+        for (let i = 1; i < tamanho; i++) {
+            vetamostras[i - 1] = vetamostras[i]
+        }
+        vetamostras[tamanho-1] = novo
+    }
+    let amostras = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let amostras2 = [0,0,0,0,0]
     //% block
     export function leituraAnalogica(porta: AnalogPin, sensor: TIPOS): number {
-        let x = 0
-        let media1 = 0
+        let media = 0
         let media2 = 0
-        for (let j = 0; j < 30; j++) {
-            for (let i = 0; i < 30; i++) {
 
-                media1 = media1 + pins.analogReadPin(porta)
-            }
-            media1 = media1 / 30
-            media2 = media2 + media1  
+        insere_valor(amostras, pins.analogReadPin(porta), 20)
+
+        for (let i = 0; i < 20; i++) {
+          media = media + amostras[i]
         }
-        x = media2 / 30
-        /**if (x > 930) {
-            x = 1023
+
+        insere_valor(amostras2,Math.round(media / 20),5)
+
+        for (let i = 0; i < 5; i++) {
+            media2 = media2 + amostras2[i]
         }
-        if (x < 50) {
-            x = 0
-        }
-        */
-        return Math.round(x)
+
+        return Math.round(media2 / 5)
     }
     //% block
     export function leituraTESTE(porta: DigitalPin, sensor: TIPOS):  number{ 
@@ -83,6 +87,9 @@ namespace EletroBlocks {
         }
     }
     // funcoes 
+
+
+
     export function port_selec_en(porta_entrada: PORTASIN): AnalogPin {
         switch (porta_entrada) {
             case PORTASIN.E1: return AnalogPin.P0;
